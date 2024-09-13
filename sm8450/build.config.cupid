@@ -1,0 +1,14 @@
+. ${ROOT_DIR}/${KERNEL_DIR}/build.config.common
+. ${ROOT_DIR}/${KERNEL_DIR}/build.config.aarch64
+
+#SKIP_MRPROPER=1
+
+DEFCONFIG=cupid_defconfig
+
+PRE_DEFCONFIG_CMDS="KCONFIG_CONFIG=${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/${DEFCONFIG} ${ROOT_DIR}/${KERNEL_DIR}/scripts/kconfig/merge_config.sh -m -r ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/gki_defconfig ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/vendor/cupid_GKI.config ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/vendor/waipio_GKI.config ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/vendor/xiaomi_GKI.config ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/vendor/debugfs.config"
+POST_DEFCONFIG_CMDS="rm ${ROOT_DIR}/${KERNEL_DIR}/arch/arm64/configs/${DEFCONFIG}"
+
+KERNEL_BINARY=Image
+
+KMI_SYMBOL_LIST=android/abi_gki_aarch64_xiaomi
+GKI_MODULES_LIST=android/gki_aarch64_modules
