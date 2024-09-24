@@ -6,4 +6,4 @@ export KERNEL_DIR=sm8450
 export OUT_DIR=${ANDROID_BUILD_TOP}
 export LTO=thin
 
-BUILD_CONFIG=sm8450/build.config.cupid build/build.sh "$@"
+BUILD_CONFIG=sm8450/build.config.cupid build/build.sh
